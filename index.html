@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/rebeca-hero.jpg">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Manrope', system-ui, sans-serif; background: #35221C; color: #F7F2EB; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: #B65F45; color: #F7F2EB; }
+  .serif { font-family: 'Cormorant Garamond', serif; }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); will-change: opacity, transform; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="overflow-x:hidden;background:#35221C;">
+
+<!-- ============ HEADER ============ -->
+<header ref="{{ headerRef }}" style="position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s ease, box-shadow .4s ease, border-color .4s ease;background:{{ headerBg }};box-shadow:{{ headerShadow }};border-bottom:1px solid {{ headerBorder }};">
+  <div style="max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+    <a href="#top" style="display:flex;flex-direction:column;line-height:1;">
+      <span class="serif" style="font-weight:700;font-size:26px;letter-spacing:.5px;color:#F7F2EB;">Estratég<span style="color:#B65F45;">IA</span></span>
+      <span style="font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(217,196,179,.8);font-weight:600;margin-top:4px;">Plataforma de implementação</span>
+    </a>
+    <nav class="main-nav" style="display:flex;align-items:center;gap:26px;font-size:13px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;">
+      <a href="#para-quem" style="color:rgba(247,242,235,.8);transition:color .2s ease;" style-hover="color:#F7F2EB;">Para quem é</a>
+      <a href="#historia" style="color:rgba(247,242,235,.8);transition:color .2s ease;" style-hover="color:#F7F2EB;">A história</a>
+      <a href="#metodo" style="color:rgba(247,242,235,.8);transition:color .2s ease;" style-hover="color:#F7F2EB;">O método</a>
+      <a href="#jornada" style="color:rgba(247,242,235,.8);transition:color .2s ease;" style-hover="color:#F7F2EB;">A jornada</a>
+      <a href="#incluido" style="color:rgba(247,242,235,.8);transition:color .2s ease;" style-hover="color:#F7F2EB;">Incluído</a>
+      <a href="#investimento" style="color:rgba(247,242,235,.8);transition:color .2s ease;" style-hover="color:#F7F2EB;">Investimento</a>
+    </nav>
+    <a href="{{ checkoutUrl }}" style="display:inline-flex;align-items:center;gap:8px;background:#2F855A;color:#F7F2EB;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.5px;padding:13px 22px;border-radius:100px;transition:transform .25s ease, background .25s ease, box-shadow .25s ease;box-shadow:0 6px 18px rgba(47,133,90,.3);" style-hover="background:#256B49;transform:translateY(-2px);box-shadow:0 10px 26px rgba(47,133,90,.42);">Quero acessar <span style="font-size:15px;">↗</span></a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" style="position:relative;background:#35221C;color:#F7F2EB;overflow:hidden;min-height:92vh;display:flex;align-items:center;">
+  <div class="hero-photo" style="position:absolute;top:0;right:0;bottom:0;width:52%;z-index:1;">
+    <img src="assets/rebeca-hero.jpg" alt="Rebeca Geller, especialista em estruturação de infoprodutos, sentada em poltrona" width="1100" height="1400" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%;" fetchpriority="high">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,#35221C 0%,rgba(53,34,28,.55) 22%,rgba(53,34,28,0) 55%);pointer-events:none;"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(transparent,rgba(53,34,28,.7));pointer-events:none;"></div>
+  </div>
+  <div style="position:absolute;top:-160px;right:-140px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(182,95,69,.26),transparent 62%);pointer-events:none;z-index:2;"></div>
+  <div style="max-width:1280px;margin:0 auto;padding:150px 32px 90px;position:relative;z-index:3;width:100%;">
+    <div class="reveal hero-copy" style="max-width:640px;">
+      <div style="display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(182,95,69,.5);border-radius:100px;padding:8px 16px;margin-bottom:32px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#B65F45;display:inline-block;"></span>
+        <span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:#C98A6D;">EstratégIA · Plataforma guiada por IA</span>
+      </div>
+      <h1 class="serif" style="font-weight:600;font-size:clamp(40px,5.6vw,74px);line-height:1;letter-spacing:-.5px;margin-bottom:28px;">Seu conhecimento vale muito mais do que você <span style="font-style:italic;color:#B65F45;">ganha hoje.</span></h1>
+      <p style="font-size:clamp(16px,1.35vw,19px);line-height:1.6;color:rgba(247,242,235,.8);max-width:520px;margin-bottom:38px;">Transforme sua experiência em um infoproduto pronto para vender em <strong style="color:#F7F2EB;font-weight:700;">até 60 dias</strong> — mesmo que você não saiba o que vender, nunca tenha lançado nada e não tenha milhares de seguidores.</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px;">
+        <a href="{{ checkoutUrl }}" style="display:inline-flex;align-items:center;gap:10px;background:#2F855A;color:#F7F2EB;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.4px;padding:18px 32px;border-radius:100px;box-shadow:0 12px 32px rgba(47,133,90,.42);transition:transform .25s ease, background .25s ease, box-shadow .25s ease;" style-hover="background:#256B49;transform:translateY(-3px);box-shadow:0 18px 42px rgba(47,133,90,.5);">Quero transformar meu conhecimento
+          <span style="font-size:16px;line-height:1;">↗</span>
+        </a>
+        <span style="font-size:13.5px;color:rgba(217,196,179,.9);font-weight:500;">Acesso imediato · Garantia de 7 dias</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAIN / PARA QUEM ============ -->
+<section id="para-quem" style="background:#F7F2EB;color:#35221C;padding:110px 32px;">
+  <div style="max-width:1120px;margin:0 auto;">
+    <p class="reveal" style="font-size:clamp(23px,2.9vw,38px);font-weight:600;line-height:1.3;margin-bottom:34px;max-width:980px;color:rgba(53,34,28,.66);letter-spacing:-.3px;">Enquanto você continua trocando horas por dinheiro, existem pessoas com <span style="color:#35221C;">menos experiência, menos conhecimento e menos resultados</span> faturando todos os meses no mercado digital.</p>
+    <p class="reveal serif" style="font-style:italic;font-size:clamp(22px,2.6vw,32px);line-height:1.3;color:#B65F45;margin-bottom:64px;max-width:840px;">Não porque são melhores. Mas porque transformaram o que sabem em um produto escalável.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;" class="two-col">
+      <div class="reveal">
+        <p style="font-size:17px;line-height:1.6;color:rgba(53,34,28,.72);margin-bottom:34px;">Talvez você seja advogado, nutricionista, consultor, professor, mentor, profissional da saúde ou especialista em qualquer área.</p>
+        <div class="serif" style="display:flex;flex-direction:column;gap:14px;font-size:clamp(24px,2.8vw,32px);font-weight:500;line-height:1.15;">
+          <span>As pessoas pedem sua ajuda.</span>
+          <span>Perguntam sua opinião.</span>
+          <span>Reconhecem seu conhecimento.</span>
+        </div>
+      </div>
+      <div class="reveal" style="border:1px solid rgba(53,34,28,.14);border-radius:20px;padding:40px 38px;background:rgba(53,34,28,.03);">
+        <p style="font-size:17px;line-height:1.6;color:rgba(53,34,28,.72);margin-bottom:22px;">Mas no final do mês você continua preso à sua agenda.</p>
+        <p class="serif" style="font-size:clamp(24px,2.6vw,30px);font-weight:500;line-height:1.2;margin-bottom:24px;">Se não trabalha, não ganha. Se para, o faturamento para.</p>
+        <p style="font-size:15.5px;line-height:1.6;color:rgba(53,34,28,.62);">E pior: você sabe que poderia estar ganhando muito mais, mas não faz ideia de como transformar seu conhecimento em um produto que realmente vende.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O RESULTADO ============ -->
+<section style="background:#35221C;color:#F7F2EB;padding:110px 32px;">
+  <div style="max-width:1120px;margin:0 auto;">
+    <h2 class="reveal serif" style="font-weight:600;font-size:clamp(34px,4.6vw,56px);line-height:1;margin-bottom:48px;">O resultado?</h2>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:52px;max-width:920px;">
+      <sc-for list="{{ frustrations }}" as="item" hint-placeholder-count="5">
+        <li class="reveal" style="display:flex;gap:18px;align-items:flex-start;padding:14px 0;">
+          <span style="flex:none;margin-top:2px;color:#B65F45;">{{ iconX }}</span>
+          <span style="font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:rgba(247,242,235,.86);">{{ item }}</span>
+        </li>
+      </sc-for>
+    </ul>
+    <p class="reveal serif" style="font-style:italic;font-size:clamp(24px,3vw,38px);font-weight:500;line-height:1.2;">Foi exatamente para resolver isso que nasceu o <span style="color:#B65F45;font-style:normal;">EstratégIA</span>.</p>
+  </div>
+</section>
+
+<!-- ============ HISTÓRIA / MÉTODO ============ -->
+<section id="historia" style="background:#F7F2EB;color:#35221C;padding:110px 32px;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:60px;right:-120px;width:320px;height:320px;border:1px solid rgba(53,34,28,.08);border-radius:50%;"></div>
+  <div style="max-width:1120px;margin:0 auto;position:relative;">
+    <p class="reveal" style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#B65F45;font-weight:700;margin-bottom:22px;">A história por trás do método</p>
+    <h2 class="reveal serif" style="font-weight:600;font-size:clamp(34px,4.8vw,60px);line-height:1.02;margin-bottom:60px;max-width:1000px;">O método por trás de mais de 200 funis de vendas agora está disponível por uma <span style="font-style:italic;color:#B65F45;">fração do valor.</span></h2>
+    <div id="metodo" style="display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;" class="two-col">
+      <!-- text -->
+      <div class="reveal" style="display:flex;flex-direction:column;gap:24px;max-width:520px;">
+        <p style="font-size:17px;line-height:1.65;color:rgba(53,34,28,.78);">Durante 6 anos, <strong style="color:#35221C;font-weight:600;">Rebeca Geller</strong> participou da estruturação de mais de 200 operações digitais.</p>
+        <p style="font-size:17px;line-height:1.65;color:rgba(53,34,28,.78);">Analisando centenas de especialistas, ela descobriu algo surpreendente:</p>
+        <p class="serif" style="font-style:italic;font-size:clamp(22px,2.4vw,28px);line-height:1.3;color:#35221C;">Os que conseguiam vender não eram os mais famosos. Não eram os que tinham mais seguidores. Não eram os que apareciam mais.</p>
+        <p style="font-size:17px;line-height:1.65;color:rgba(53,34,28,.78);">Eram os que seguiam um <span style="color:#B65F45;font-weight:600;">processo validado.</span></p>
+        <p style="font-size:17px;line-height:1.65;color:rgba(53,34,28,.78);">Agora, pela primeira vez, esse processo foi transformado em uma plataforma guiada por <strong style="color:#35221C;font-weight:600;">Inteligência Artificial</strong>.</p>
+      </div>
+      <!-- card -->
+      <div class="reveal" style="border:1px solid rgba(53,34,28,.14);border-radius:20px;padding:40px 38px;background:rgba(53,34,28,.03);">
+        <p style="font-size:17px;line-height:1.55;color:rgba(53,34,28,.82);margin-bottom:26px;">Uma plataforma que pega o conhecimento que hoje está preso na sua cabeça e transforma em:</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:15px;">
+          <sc-for list="{{ transforms }}" as="item" hint-placeholder-count="7">
+            <li style="display:flex;gap:13px;align-items:center;font-size:16.5px;font-weight:500;color:#35221C;">
+              <span style="flex:none;color:#B65F45;">{{ iconCheck }}</span> {{ item }}
+            </li>
+          </sc-for>
+        </ul>
+        <div style="height:1px;background:rgba(53,34,28,.12);margin:32px 0;"></div>
+        <div class="serif" style="display:flex;flex-direction:column;gap:10px;font-size:clamp(19px,2vw,23px);font-weight:500;line-height:1.25;">
+          <span>Tudo organizado passo a passo.</span>
+          <span style="color:rgba(53,34,28,.7);">Sem adivinhação.</span>
+          <span style="color:rgba(53,34,28,.7);">Sem ficar meses perdido.</span>
+          <span style="color:rgba(53,34,28,.7);">Sem contratar uma coprodução de dezenas de milhares de reais.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMAGINE 60 DIAS / JORNADA ============ -->
+<section id="jornada" style="background:#35221C;color:#F7F2EB;padding:110px 32px;">
+  <div style="max-width:1120px;margin:0 auto;">
+    <h2 class="reveal serif" style="font-weight:600;font-size:clamp(34px,4.8vw,60px);line-height:1;margin-bottom:56px;">Imagine daqui <span style="font-style:italic;color:#B65F45;">60 dias...</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:56px;" class="grid-4">
+      <sc-for list="{{ imagine }}" as="item" hint-placeholder-count="4">
+        <div class="reveal" style="border:1px solid rgba(217,196,179,.16);border-radius:18px;padding:30px 26px;background:rgba(247,242,235,.02);">
+          <div class="serif" style="font-size:54px;font-weight:700;color:#B65F45;line-height:.9;">{{ item.num }}</div>
+          <div style="width:38px;height:2px;background:rgba(217,196,179,.3);margin:18px 0;"></div>
+          <p class="serif" style="font-size:22px;font-weight:600;line-height:1.2;">{{ item.text }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <div class="reveal" style="max-width:820px;display:flex;flex-direction:column;gap:22px;">
+      <p style="font-size:clamp(17px,1.5vw,19px);line-height:1.6;color:rgba(247,242,235,.78);">E pela primeira vez você vê o dinheiro entrar sem precisar vender mais horas da sua vida.</p>
+      <p class="serif" style="font-size:clamp(24px,3vw,36px);font-weight:500;line-height:1.2;">Isso não é sobre criar um curso. É sobre construir um <span style="font-style:italic;color:#B65F45;">ativo digital</span> que continua gerando receita mesmo quando você não está trabalhando.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O QUE VOCÊ RECEBE ============ -->
+<section id="incluido" style="background:#F7F2EB;color:#35221C;padding:110px 32px;">
+  <div style="max-width:1120px;margin:0 auto;">
+    <p class="reveal" style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#B65F45;font-weight:700;margin-bottom:18px;">Tudo incluído</p>
+    <h2 class="reveal serif" style="font-weight:600;font-size:clamp(34px,4.8vw,60px);line-height:1;margin-bottom:52px;">O que você recebe</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;" class="grid-2">
+      <sc-for list="{{ included }}" as="item" hint-placeholder-count="10">
+        <div class="reveal" style="display:flex;gap:16px;align-items:center;border:1px solid rgba(53,34,28,.12);border-radius:14px;padding:22px 24px;background:rgba(53,34,28,.03);transition:border-color .3s ease, background .3s ease;" style-hover="border-color:rgba(53,34,28,.24);background:rgba(53,34,28,.05);">
+          <span style="flex:none;width:36px;height:36px;border-radius:9px;background:rgba(182,95,69,.18);display:flex;align-items:center;justify-content:center;color:#B65F45;">{{ iconCheck }}</span>
+          <span style="font-size:16px;font-weight:600;line-height:1.4;">{{ item }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUANTO CUSTARIA ============ -->
+<section style="background:#35221C;color:#F7F2EB;padding:110px 32px;">
+  <div style="max-width:860px;margin:0 auto;">
+    <h2 class="reveal serif" style="font-weight:600;font-size:clamp(32px,4.4vw,54px);line-height:1.05;margin-bottom:48px;">Quanto custaria contratar <span style="font-style:italic;color:#B65F45;">isso separadamente?</span></h2>
+    <div style="display:flex;flex-direction:column;gap:2px;">
+      <sc-for list="{{ valueStack }}" as="item" hint-placeholder-count="5">
+        <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 4px;border-bottom:1px solid rgba(217,196,179,.16);">
+          <span style="font-size:17px;font-weight:500;color:rgba(247,242,235,.86);">{{ item.label }}</span>
+          <span class="serif" style="font-size:24px;font-weight:600;color:#C98A6D;white-space:nowrap;">{{ item.price }}</span>
+        </div>
+      </sc-for>
+      <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px 4px 4px;">
+        <span style="font-size:19px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;">Total</span>
+        <span class="serif" style="font-size:clamp(30px,4vw,44px);font-weight:700;color:#F7F2EB;white-space:nowrap;">mais de R$ 32.000</span>
+      </div>
+    </div>
+    <p class="reveal serif" style="margin-top:40px;font-style:italic;font-size:clamp(24px,3vw,34px);color:#B65F45;">Hoje você não investe nem 5% disso.</p>
+  </div>
+</section>
+
+<!-- ============ OFERTA / PREÇO ============ -->
+<section id="investimento" style="background:#F7F2EB;color:#35221C;padding:110px 32px;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:640px;height:640px;background:radial-gradient(circle,rgba(182,95,69,.18),transparent 60%);pointer-events:none;"></div>
+  <div style="max-width:600px;margin:0 auto;position:relative;">
+    <p class="reveal" style="text-align:center;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#B65F45;font-weight:700;margin-bottom:32px;">Oferta EstratégIA</p>
+    <div class="reveal" style="background:linear-gradient(180deg,#3a251d,#2a1a14);border:1px solid rgba(217,196,179,.2);border-radius:24px;padding:48px 40px;box-shadow:0 40px 90px rgba(0,0,0,.45);">
+      <div style="text-align:center;margin-bottom:6px;">
+        <span style="font-size:19px;color:rgba(247,242,235,.5);text-decoration:line-through;text-decoration-color:#B65F45;">De R$ 1.997</span>
+      </div>
+      <div style="text-align:center;line-height:.9;">
+        <span style="font-size:16px;color:#C98A6D;font-weight:600;vertical-align:top;margin-right:5px;">R$</span>
+        <span class="serif" style="font-size:clamp(86px,14vw,140px);font-weight:700;color:#F7F2EB;">1.297</span>
+      </div>
+      <p style="text-align:center;font-size:17px;color:#C98A6D;font-weight:600;margin-top:8px;">ou 12x de R$ 133,35</p>
+      <p style="text-align:center;font-size:14.5px;color:rgba(247,242,235,.7);margin-top:16px;line-height:1.5;">Menos do que o valor que muitas pessoas gastam em uma única consulta, sessão ou atendimento.</p>
+      <a href="{{ checkoutUrl }}" style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:30px;background:#2F855A;color:#F7F2EB;font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:.4px;padding:20px 28px;border-radius:100px;box-shadow:0 14px 36px rgba(47,133,90,.45);transition:transform .25s ease, background .25s ease, box-shadow .25s ease;" style-hover="background:#256B49;transform:translateY(-3px);box-shadow:0 20px 48px rgba(47,133,90,.55);">Quero transformar meu conhecimento <span style="font-size:17px;">↗</span></a>
+      <p style="text-align:center;font-size:13px;color:rgba(217,196,179,.85);margin-top:16px;display:flex;align-items:center;justify-content:center;gap:7px;">{{ iconShield }} Acesso imediato · Garantia incondicional de 7 dias</p>
+    </div>
+    <p class="reveal" style="text-align:center;font-size:13px;color:rgba(53,34,28,.65);margin-top:22px;line-height:1.55;max-width:480px;margin-left:auto;margin-right:auto;">O valor retornará ao preço original de R$ 1.997 assim que a meta da turma de lançamento for atingida, sem aviso prévio.</p>
+  </div>
+</section>
+
+<!-- ============ GARANTIA ============ -->
+<section style="background:#35221C;color:#F7F2EB;padding:110px 32px;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="border:1px solid rgba(217,196,179,.16);border-radius:24px;padding:52px 44px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;background:rgba(247,242,235,.02);" class="guar-grid">
+      <div class="reveal" style="flex:none;width:110px;height:110px;border-radius:50%;background:rgba(182,95,69,.16);display:flex;align-items:center;justify-content:center;color:#C98A6D;border:1px solid rgba(217,196,179,.2);">
+        {{ iconShieldLarge }}
+      </div>
+      <div class="reveal">
+        <h2 class="serif" style="font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1;margin-bottom:18px;">Garantia de 7 dias</h2>
+        <p style="font-size:16.5px;line-height:1.6;color:rgba(247,242,235,.8);">Você entra. Acessa. Explora a plataforma. Usa as ferramentas. E se perceber que não é para você, basta solicitar o reembolso — você recebe <strong style="color:#F7F2EB;">100% do seu dinheiro de volta</strong>. Sem burocracia. Sem risco.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A VERDADE / CTA FINAL ============ -->
+<section style="background:#F7F2EB;color:#35221C;padding:120px 32px;position:relative;overflow:hidden;">
+  <div style="position:absolute;bottom:-160px;right:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(182,95,69,.2),transparent 62%);pointer-events:none;"></div>
+  <div style="max-width:820px;margin:0 auto;position:relative;">
+    <h2 class="reveal serif" style="font-weight:600;font-size:clamp(36px,5vw,62px);line-height:1;margin-bottom:38px;">A verdade é simples:</h2>
+    <p class="reveal" style="font-size:clamp(17px,1.6vw,20px);line-height:1.65;color:rgba(53,34,28,.82);margin-bottom:26px;">Daqui a um ano você pode estar exatamente no mesmo lugar. Trocando horas por dinheiro. Adiando seu projeto. Assistindo outras pessoas faturarem com conhecimento que nem chega perto do que você sabe.</p>
+    <p class="reveal serif" style="font-style:italic;font-size:clamp(24px,3vw,36px);line-height:1.25;color:#B65F45;margin-bottom:16px;">Ou pode tomar a decisão que finalmente coloca seu conhecimento para trabalhar por você.</p>
+    <p class="reveal serif" style="font-size:clamp(24px,3vw,34px);font-weight:600;line-height:1.2;margin-bottom:48px;">Construa seu primeiro infoproduto nos próximos 60 dias.</p>
+    <a href="{{ checkoutUrl }}" class="reveal" style="display:inline-flex;align-items:center;gap:10px;background:#2F855A;color:#F7F2EB;font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:.4px;padding:20px 40px;border-radius:100px;box-shadow:0 16px 42px rgba(47,133,90,.5);transition:transform .25s ease, background .25s ease, box-shadow .25s ease;" style-hover="background:#256B49;transform:translateY(-3px);box-shadow:0 22px 54px rgba(47,133,90,.6);">Quero transformar meu conhecimento em vendas <span style="font-size:19px;">↗</span></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer style="background:#2b1b15;color:rgba(247,242,235,.55);padding:56px 32px 44px;">
+  <div style="max-width:1180px;margin:0 auto;text-align:center;">
+    <p class="serif" style="font-weight:700;font-size:26px;color:#F7F2EB;">Estratég<span style="color:#B65F45;">IA</span></p>
+    <p style="font-size:12px;letter-spacing:1.8px;text-transform:uppercase;margin-top:6px;">Plataforma de implementação</p>
+    <div style="width:44px;height:1px;background:rgba(217,196,179,.22);margin:26px auto;"></div>
+    <p style="font-size:12.5px;color:rgba(247,242,235,.4);">© 2026 EstratégIA · Rebeca Geller. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- ============ MOBILE STICKY CTA ============ -->
+<div ref="{{ stickyRef }}" style="position:fixed;left:0;right:0;bottom:0;z-index:120;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(43,27,21,.97);backdrop-filter:blur(8px);border-top:1px solid rgba(217,196,179,.18);transform:translateY(120%);transition:transform .4s cubic-bezier(.16,1,.3,1);display:none;" class="sticky-cta">
+  <a href="{{ checkoutUrl }}" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#2F855A;color:#F7F2EB;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.3px;padding:16px;border-radius:100px;">Quero acessar por R$ 1.297 ↗</a>
+</div>
+
+</div>
+
+<style>
+  @media (max-width: 960px) {
+    .main-nav { display: none !important; }
+    #top { min-height: auto !important; flex-direction: column !important; }
+    #top .hero-photo { position: relative !important; width: 100% !important; height: 58vh; max-height: 480px; order: -1; }
+    #top > div[style*="max-width:1280px"] { padding: 40px 24px 70px !important; }
+    #top .hero-copy { max-width: none !important; }
+    .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .grid-4 { grid-template-columns: repeat(2,1fr) !important; }
+    .guar-grid { grid-template-columns: 1fr !important; text-align: center; justify-items: center; gap: 24px !important; }
+    .sticky-cta { display: block !important; }
+  }
+  @media (max-width: 560px) {
+    .grid-4, .grid-2 { grid-template-columns: 1fr !important; }
+  }
+</style>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const CHECKOUT_URL = "#investimento";
+
+const svg = (paths, opts = {}) => {
+  const sz = opts.size || 20;
+  const sw = opts.sw || 1.8;
+  return React.createElement('svg', { width: sz, height: sz, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: sw, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': 'true' }, paths.map((d, i) => React.createElement('path', { key: i, d })));
+};
+
+class Component extends DCLogic {
+  state = { scrolled: false };
+
+  componentDidMount() {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.from(document.querySelectorAll('.reveal'));
+    if (reduce) {
+      els.forEach(e => e.classList.add('in'));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(e => io.observe(e));
+      this._io = io;
+    }
+
+    this._onScroll = () => {
+      const y = window.scrollY || window.pageYOffset;
+      const scrolled = y > 40;
+      if (scrolled !== this.state.scrolled) this.setState({ scrolled });
+      if (this.stickyRef) {
+        this.stickyRef.style.transform = y > 700 ? 'translateY(0)' : 'translateY(120%)';
+      }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+  }
+
+  renderVals() {
+    const s = this.state.scrolled;
+    const iconCheck = svg(['M5 13l4 4L19 7']);
+    const iconX = React.createElement('svg', { width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': 'true' }, [
+      React.createElement('circle', { key: 'c', cx: 12, cy: 12, r: 9 }),
+      React.createElement('path', { key: 'x1', d: 'M15 9l-6 6' }),
+      React.createElement('path', { key: 'x2', d: 'M9 9l6 6' }),
+    ]);
+    const iconShield = svg(['M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z', 'M9 12l2 2 4-4'], { size: 16 });
+
+    return {
+      checkoutUrl: CHECKOUT_URL,
+      headerRef: (el) => { this.headerRef = el; },
+      stickyRef: (el) => { this.stickyRef = el; },
+      headerBg: s ? 'rgba(43,27,21,.92)' : 'transparent',
+      headerShadow: s ? '0 4px 24px rgba(0,0,0,.35)' : 'none',
+      headerBorder: s ? 'rgba(217,196,179,.14)' : 'transparent',
+
+      iconCheck,
+      iconX,
+      iconShield,
+      iconShieldLarge: svg(['M12 3l8 3.5v5.5c0 5-3.4 8.6-8 10.5-4.6-1.9-8-5.5-8-10.5V6.5L12 3z', 'M8.5 12.5l2.5 2.5 4.5-5'], { size: 48, sw: 1.3 }),
+
+      frustrations: [
+        'Ideias paradas há anos.',
+        'Medo de investir e perder dinheiro.',
+        'Cursos comprados que nunca saíram do papel.',
+        'Horas consumindo conteúdo sem saber qual é o próximo passo.',
+        'A sensação frustrante de ver pessoas menos qualificadas crescendo no digital enquanto você continua travado.',
+      ],
+
+      transforms: [
+        'Oferta validada',
+        'Estrutura completa do produto',
+        'Página de vendas',
+        'Conteúdo para Instagram',
+        'Estratégia de vendas',
+        'Copys para anúncios',
+        'Plano de crescimento',
+      ],
+
+      imagine: [
+        { num: '01', text: 'Seu produto pronto.' },
+        { num: '02', text: 'Sua página publicada.' },
+        { num: '03', text: 'Seu conteúdo rodando.' },
+        { num: '04', text: 'Suas primeiras vendas acontecendo.' },
+      ],
+
+      included: [
+        '4 meses de acesso completo à plataforma EstratégIA',
+        'Método validado em mais de 200 funis',
+        'Estruturação completa do seu produto',
+        'Copy profissional da página de vendas',
+        'Calendário de conteúdo para Instagram',
+        'Roteiros para Stories e Feed',
+        'Copys para anúncios',
+        'Aulas estratégicas de implementação',
+        'Diagnóstico personalizado',
+        'Manual de posicionamento e tom de voz',
+      ],
+
+      valueStack: [
+        { label: 'Estruturação estratégica', price: 'R$ 5.000+' },
+        { label: 'Copy profissional', price: 'R$ 3.000+' },
+        { label: 'Consultoria de posicionamento', price: 'R$ 2.000+' },
+        { label: 'Planejamento de conteúdo', price: 'R$ 2.000+' },
+        { label: 'Processo de coprodução', price: 'R$ 20.000+' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
